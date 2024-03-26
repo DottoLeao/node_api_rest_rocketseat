@@ -1,0 +1,29 @@
+POST http://localhost:3333/videos
+Content-Type: application/json
+
+
+{
+  "title": "Video batman",
+  "description": "Esse é o primeiro video",
+  "duration": 100
+}
+
+###
+
+GET http://localhost:3333/videos
+
+###
+
+PUT http://localhost:3333/videos/e6fcb7b8-0ac9-4874-ad90-808e9ca5692d
+Content-Type: application/json
+
+
+{
+  "title": "Video home aranha",
+  "description": "Esse é o primeiro video",
+  "duration": 100
+}
+
+###
+
+DELETE http://localhost:3333/videos/ab741510-b980-44cd-8ddf-dfe9790340e1
