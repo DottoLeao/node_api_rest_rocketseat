@@ -30,10 +30,10 @@ server.get("/videos", async (request, response) => {
   return response.send(videos);
 });
 
-server.put("/videos/:id", (request, response) => {
+server.put("/videos/:id", async (request, response) => {
   const videoId = request.params.id;
   const { title, description, duration } = request.body;
-  const video = database.update(videoId, {
+  const video = await database.update(videoId, {
     title,
     description,
     duration,
@@ -42,14 +42,14 @@ server.put("/videos/:id", (request, response) => {
   return response.status(204).send();
 });
 
-server.delete("/videos/:id", (request, response) => {
+server.delete("/videos/:id", async (request, response) => {
   const videoId = request.params.id;
 
-  database.delete(videoId);
+  await database.delete(videoId);
 
   return response.status(204).send();
 });
 
 server.listen({
-  port: 3333,
+  port: process.env.PORT ?? 3333,
 });
